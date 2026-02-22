@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) { 
@@ -53,3 +53,31 @@ public class Main {
                 }
             }
         }
+        
+        List<studentInfo> masterList = repo.getAllStudents();
+        
+        System.out.println("\n=== MASTER LIST OF STUDENTS (FROM SQLITE DATABASE) ===");
+        System.out.println("========================================================================================================================================================================");
+        System.out.printf("%-10s %-15s %-15s %-15s %-10s %-10s %-15s %-30s %-20s %-15s\n", 
+            "ID", "First Name", "Last Name", "Middle Name", "Year", "Section", "Program", "Address", "Email", "Phone");
+        System.out.println("========================================================================================================================================================================");
+        
+        for (studentInfo s : masterList) {
+            System.out.printf("%-10d %-15s %-15s %-15s %-10d %-10s %-15s %-30s %-20s %-15s\n", 
+                s.getSTUDID(), 
+                s.getSTUDFNAME(), 
+                s.getSTUDLNAME(), 
+                s.getSTUDMNAME(), 
+                s.getSTUDYEAR(), 
+                s.getSTUDSECTION(), 
+                s.getSTUDPROG(), 
+                s.getSTUDADDRESS(), 
+                s.getSTUDEMAIL(), 
+                s.getSTUDPHONE());
+        }
+        System.out.println("========================================================================================================================================================================");
+        
+        System.out.println("System Closed.");
+        sc.close();
+    }
+}
