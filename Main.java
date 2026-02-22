@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) { 
-        // Tinatawag ang repository base sa diagram
+
         repository repo = new repository(); 
         Scanner sc = new Scanner(System.in);
         boolean isRunning = true;
@@ -21,7 +21,6 @@ public class Main {
             System.out.print("9. Email: "); String em = sc.nextLine();
             System.out.print("10. Phone: "); String ph = sc.nextLine();
 
-            // Paggamit ng Builder Pattern mula sa diagram
             studentInfo s = new studentInfo.StudentBuilder()
                     .setSTUDID(id)
                     .setSTUDFNAME(fn)
@@ -35,7 +34,6 @@ public class Main {
                     .setSTUDPHONE(ph)
                     .BuildStudent();
 
-            // I-save sa database
             repo.insertStudent(s);
 
             OUTER:
